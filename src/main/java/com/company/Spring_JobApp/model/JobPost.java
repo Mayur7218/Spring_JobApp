@@ -1,14 +1,11 @@
 package com.company.Spring_JobApp.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Component
 public class JobPost {
     private int postId;
     private String postProfile;
@@ -16,7 +13,16 @@ public class JobPost {
     private int reqExperience;
     private List<String> postTechStack;
 
+    public JobPost(int postId, String postProfile, String postDesc, int reqExperience, List<String> postTechStack) {
+        this.postId = postId;
+        this.postProfile = postProfile;
+        this.postDesc = postDesc;
+        this.reqExperience = reqExperience;
+        this.postTechStack = postTechStack;
+    }
 
+    public JobPost() {
+    }
 
     public int getPostId() {
         return postId;
@@ -56,5 +62,16 @@ public class JobPost {
 
     public void setPostTechStack(List<String> postTechStack) {
         this.postTechStack = postTechStack;
+    }
+
+    @Override
+    public String toString() {
+        return "JobPost{" +
+                "postId=" + postId +
+                ", postProfile='" + postProfile + '\'' +
+                ", postDesc='" + postDesc + '\'' +
+                ", reqExperience=" + reqExperience +
+                ", postTechStack=" + postTechStack +
+                '}';
     }
 }
